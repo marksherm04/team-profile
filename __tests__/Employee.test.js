@@ -7,11 +7,3 @@ test("creates an employee object", () => {
 	expect(employee.id).toEqual(expect.any(Number));
 	expect(employee.email).toEqual(expect.any(String));
 });
-
-
-
-// const checkIfEqual = require("../lib/Employee.js");
-
-// test("checks if 10 is equal to 10", () => {
-// 	expect(checkIfEqual(10,10)).toBe(true);
-// });
