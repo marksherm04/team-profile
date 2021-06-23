@@ -70,6 +70,8 @@ const newManager = [
 	}
 ];
 
+// NEED SOMETHING HERE TO CALL MANAGER INPUT - MAYBE THEN STATEMENT
+
 // adds new employees
 const newEmployee = () => {
 	inquirer.prompt([
@@ -151,10 +153,11 @@ const newEmployee = () => {
 		}
 	])
 	
+	// NEED SOMETHING HERE FOR ENGINEER OR INTERN - MAYBE THEN STATEMENT
 
 };
 
-// function to create HTML page
+// function to create HTML page  -- MAY NEED TO EDIT! //
 function writeToFile(fileName, data) {
 	fs.writeFile("./dist/index.html", (fileName, data), err => {
 		// if there's an error with the page creation, it will throw an error, otherwise a page will be created
@@ -165,13 +168,4 @@ function writeToFile(fileName, data) {
 	});
 };
 
-function startApp() {
-	inquirer.prompt(teamMembers)
-
-		.then(function (userInput) {
-			writeToFile("index.html", generatePage(userInput));
-		});
-};
-
-// function to call and start application
-startApp();
+// NEED FUNCTION HERE TO RUN APPLICATION //
