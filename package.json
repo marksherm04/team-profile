@@ -18,5 +18,8 @@
   "homepage": "https://github.com/marksherm04/team-profile#readme",
   "devDependencies": {
     "jest": "^27.0.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.1"
   }
 }
