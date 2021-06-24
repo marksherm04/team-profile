@@ -71,6 +71,7 @@ function managerQuestions() {
 			}
 		}
 	]
+
 	inquirer.prompt(managerInfo).then(response => {
 		const newManager = new Manager(response.name, response.id, response.email, response.officeNumber)
 		fullTeam.push(newManager)
@@ -102,6 +103,14 @@ function managerQuestions() {
 			}
 			else if (response.teamMember === "None") {
 				// call finishApp
+
+				// const createHTML = ????? Don't know what to put here
+				// fs.writeFile("./dist/index.html", function (err) {
+				// 	if (err) {
+				// 		return console.log(err);
+				// 	}
+				// 	console.log("HTML page created.")
+				// });
 			}
 		})
 

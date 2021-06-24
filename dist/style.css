@@ -1,0 +1,22 @@
+body {
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 48px;
+	text-align: center;
+    }
+
+.header {
+	padding: 60px;
+	text-align: center;
+	background-color: rgb(156, 208, 156);;
+	font-weight:bolder;
+	font-size: 32px;
+	margin-bottom: 5%;
+	
+}
+
+.card {
+	font-size: 24px;
+}
