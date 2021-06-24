@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const generatePage = require("./src/generatePage");
 
-const Employee = require("./lib/Employee");
+// const created to link to js files for different team members
 const Manager = require("./lib/Manger");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -12,10 +12,12 @@ const Intern = require("./lib/Intern");
 // team members added to empty array
 const fullTeam = [];
 
+// function to run managerQuestions first always, and then will go into inquirer prompt to cycle through prompts to add new team members
 function managerQuestions() {
 	// Manager information added
 	const managerInfo = [
 		{
+			// Manager name
 			type: "input",
 			name: "name",
 			message: "What is the manager's name?",
@@ -71,18 +73,18 @@ function managerQuestions() {
 			}
 		}
 	]
-
+	// end array for manager questions and start prompt to get answers and log all of them under a new manager
 	inquirer.prompt(managerInfo).then(response => {
 		const newManager = new Manager(response.name, response.id, response.email, response.officeNumber)
 		fullTeam.push(newManager)
-
+	// adding in team members by asking which type of member to add
 		const addTeamMember = [{
 			type: "list",
 			name: "teamMember",
 			message: "Would you like to add another team member? If so, what department are they in?",
 			choices: ["Engineer", "Intern", "None"]
 		}]
-
+		// if Engineer selected, will prompt the 4 questions for the engineer
 		inquirer.prompt(addTeamMember).then(response => {
 			console.log(response);
 
@@ -93,7 +95,7 @@ function managerQuestions() {
 					console.log(fullTeam);
 				})
 			}
-
+		// if Intern selected, will prompt the 4 questions for the intern
 			else if (response.teamMember === "Intern") {
 				inquirer.prompt(internInfo).then(response => {
 					const newIntern = new Intern(response.name, response.id, response.email, response.school)
@@ -101,6 +103,7 @@ function managerQuestions() {
 					console.log(fullTeam)
 				})
 			}
+		// if None selected, will end function and create page -- TODO: end function and create page somehow
 			else if (response.teamMember === "None") {
 				// call finishApp
 
@@ -117,12 +120,12 @@ function managerQuestions() {
 	})
 
 };
-
+// TODO - create function to end prompts to pu in "None" else if statement
 function finishApp(){
 
 }
 
-
+// Engineer questions prompt
 const engineerInfo = [
 	{
 		type: "input",
@@ -178,7 +181,7 @@ const engineerInfo = [
 
 	},
 ];
-
+// Intern questions prompt
 const internInfo = [
 	{
 		type: "input",
@@ -236,5 +239,5 @@ const internInfo = [
 ];
 
 
-
+// runs the function on start
 managerQuestions();
