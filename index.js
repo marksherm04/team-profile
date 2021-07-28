@@ -77,53 +77,61 @@ function managerQuestions() {
 	inquirer.prompt(managerInfo).then(response => {
 		const newManager = new Manager(response.name, response.id, response.email, response.officeNumber)
 		fullTeam.push(newManager)
-	// adding in team members by asking which type of member to add
-		const addTeamMember = [{
-			type: "list",
-			name: "teamMember",
-			message: "Would you like to add another team member? If so, what department are they in?",
-			choices: ["Engineer", "Intern", "None"]
-		}]
-		// if Engineer selected, will prompt the 4 questions for the engineer
-		inquirer.prompt(addTeamMember).then(response => {
-			console.log(response);
 
-			if (response.teamMember === "Engineer") {
-				inquirer.prompt(engineerInfo).then(response => {
-					const newEngineer = new Engineer(response.name, response.id, response.email, response.github)
-					fullTeam.push(newEngineer)
-					console.log(fullTeam);
-				})
-			}
-		// if Intern selected, will prompt the 4 questions for the intern
-			else if (response.teamMember === "Intern") {
-				inquirer.prompt(internInfo).then(response => {
-					const newIntern = new Intern(response.name, response.id, response.email, response.school)
-					fullTeam.push(newIntern)
-					console.log(fullTeam)
-				})
-			}
-		// if None selected, will end function and create page -- TODO: end function and create page somehow
-			else if (response.teamMember === "None") {
-				// call finishApp
-
-				// const createHTML = ????? Don't know what to put here
-				// fs.writeFile("./dist/index.html", function (err) {
-				// 	if (err) {
-				// 		return console.log(err);
-				// 	}
-				// 	console.log("HTML page created.")
-				// });
-			}
-		})
-
+		addEmployee();
 	})
-
 };
-// TODO - create function to end prompts to pu in "None" else if statement
-function finishApp(){
 
+function addEmployee() {
+
+	// adding in team members by asking which type of member to add
+	const addTeamMember = [{
+		type: "list",
+		name: "teamMember",
+		message: "Would you like to add another team member? If so, what department are they in?",
+		choices: ["Engineer", "Intern", "None"]
+	}]
+	// if Engineer selected, will prompt the 4 questions for the engineer
+	inquirer.prompt(addTeamMember).then(response => {
+		console.log(response);
+
+		if (response.teamMember === "Engineer") {
+			inquirer.prompt(engineerInfo).then(response => {
+				const newEngineer = new Engineer(response.name, response.id, response.email, response.github)
+				fullTeam.push(newEngineer)
+				console.log(fullTeam);
+				addEmployee();
+			})
+		}
+		// if Intern selected, will prompt the 4 questions for the intern
+		else if (response.teamMember === "Intern") {
+			inquirer.prompt(internInfo).then(response => {
+				const newIntern = new Intern(response.name, response.id, response.email, response.school)
+				fullTeam.push(newIntern)
+				console.log(fullTeam)
+				addEmployee();
+			})
+		}
+
+		// if None selected, will end function and create page -- TODO: end function and create page somehow
+		else if (response.teamMember === "None") {
+			// call finishApp
+
+			// NEED TO CREATE HTML THEN RUN THIS writeFile
+
+			// const createHTML = ????? Don't know what to put here
+			// fs.writeFile("./dist/index.html", function (err) {
+			// 	if (err) {
+			// 		return console.log(err);
+			// 	}
+			// 	console.log("HTML page created.")
+			// });
+		}
+	})
 }
+
+// TODO - create function to end prompts to pu in "None" else if statement
+function finishApp(){}
 
 // Engineer questions prompt
 const engineerInfo = [
