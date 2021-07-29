@@ -1,22 +1,45 @@
-body {
-	justify-content: center;
-	align-items: center;
-	margin: 0;
-	font-family: 'Roboto', sans-serif;
-	font-size: 48px;
-	text-align: center;
+* {
+	box-sizing: border-box;
+    }
+    
+    body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: black;
+    }
+    
+    #navbar {
+	background-color: whitesmoke;
+	font-size: 50px;
+	padding-top: 5rem;
+	border-bottom-left-radius: 1.5rem;
+	border-bottom-right-radius: 1.5rem;
+	color: black;
+    }
+    
+    .navbar-brand {
+	font-size: 50px;
     }
 
-.header {
-	padding: 60px;
-	text-align: center;
-	background-color: rgb(156, 238, 156);;
-	font-weight:bolder;
-	font-size: 32px;
-	margin-bottom: 5%;
-	
-}
-
-.card {
-	font-size: 24px;
-}
+    h1 {
+	    font-size: 48px;
+	    font-weight: bolder;
+    }
+    
+    .card { 
+	    padding-bottom: 3rem;
+    }
+    
+    .card-header {
+	background-color: grey;	
+    }
+    
+    .card-body {
+	background-color: whitesmoke;
+	color: black;
+    }
+    
+    .container {
+	margin: 100px auto;
+	justify-content: space-evenly;
+	display: flex;
+    }
