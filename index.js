@@ -115,23 +115,28 @@ function addEmployee() {
 
 		// if None selected, will end function and create page -- TODO: end function and create page somehow
 		else if (response.teamMember === "None") {
-			// call finishApp
+			// call finishApp and writeFile
+			const writeFile = data => {
+				fs.writeFile("./dist/index.html", data, err => {
+					if (err) {
+						console.log(err);
+						return;
+					}
+					else {
+						console.log("Your team has been generated!")
+					}
+				});
+				writeFile();
 
-			// NEED TO CREATE HTML THEN RUN THIS writeFile
+			};
 
-			// const createHTML = ????? Don't know what to put here
-			// fs.writeFile("./dist/index.html", function (err) {
-			// 	if (err) {
-			// 		return console.log(err);
-			// 	}
-			// 	console.log("HTML page created.")
-			// });
 		}
 	})
-}
+};
+
 
 // TODO - create function to end prompts to pu in "None" else if statement
-function finishApp(){}
+function finishApp() { }
 
 // Engineer questions prompt
 const engineerInfo = [
