@@ -20,9 +20,10 @@ This is a backend based Object Oriented Programming application that write a fil
 npm install
 
 ## Screenshot
+<img width="2524" alt="Screen Shot 2021-07-29 at 3 06 28 PM" src="https://user-images.githubusercontent.com/81338255/127551383-98fcbbc4-58fd-4c09-adcc-d9afd125f911.png">
 
 ## Walk Through Video
-https://drive.google.com/file/d/1PCSaKPDrbVwxvkVXuS9E8wFff2jONafP/view  
+https://drive.google.com/file/d/1Kz1jARXAl5sh1otAgTjccSCbud6fHTRC/view
 
 ## Contributing
 Mark Sherman
