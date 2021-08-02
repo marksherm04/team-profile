@@ -27,7 +27,7 @@ const generateEngineer = engineer => {
 		<div class="card text-white bg-success mb-5 shadow-lg bg-white-rounded"
 			style="max-width: 25rem;">
 			<div class="card-header">
-				<h4>{${engineer.name}</h4>
+				<h4>${engineer.name}</h4>
 				<h5>Engineer</h5>
 			</div>
 
@@ -36,7 +36,7 @@ const generateEngineer = engineer => {
 				<p class="email">Email: <a href="mailto: ${engineer.email}">
 					${engineer.email}</a></p>
 				<p class="github">Github: <a
-					ref="https://www.github.com/${engineer.github}">${engineer.github}</a>
+					href="https://www.github.com/${engineer.github}">${engineer.github}</a>
 				</p>
 			</div>
 		</div>
@@ -66,13 +66,13 @@ const generateIntern = intern => {
 	`};
 
 // push array to page 
-generateHTML = (data) => {
+generateHTML = (fullTeam) => {
 
 	// array for cards 
 	cardArray = [];
 
-	for (let i = 0; i < data.length; i++) {
-		const teamMember = data[i];
+	for (let i = 0; i < fullTeam.length; i++) {
+		const teamMember = fullTeam[i];
 		const role = teamMember.getRole();
 
 
@@ -80,27 +80,27 @@ generateHTML = (data) => {
 		if (role === 'Manager') {
 			const managerCard = generateManager(teamMember);
 
-			pageArray.push(managerCard);
+			cardArray.push(managerCard);
 		}
 
 		// call engineer function
 		if (role === 'Engineer') {
 			const engineerCard = generateEngineer(teamMember);
 
-			pageArray.push(engineerCard);
+			cardArray.push(engineerCard);
 		}
 
 		// call intern function 
 		if (role === 'Intern') {
 			const internCard = generateIntern(teamMember);
 
-			pageArray.push(internCard);
+			cardArray.push(internCard);
 		}
 
 	}
 
 	// joining strings 
-	const teamMemberCards = pageArray.join('')
+	const teamMemberCards = cardArray.join('')
 
 	// return to generated page
 	const Team = generateTeamPage(teamMemberCards);
